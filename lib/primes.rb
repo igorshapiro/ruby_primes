@@ -19,6 +19,8 @@ class Primes
   class << self
     # Returns nth prime, n - 1-based index
     def get n
+      raise ArgumentError.new "n must be positive" unless n >= 1
+      
       find_next_prime while n > @@known_primes.length
       @@known_primes[n - 1]
     end
